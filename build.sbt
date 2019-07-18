@@ -1,3 +1,5 @@
+import suprem.project.{Versions => V}
+
 import scala.collection.Seq
 
 homepage in ThisBuild := Some(url("https://github.com/slamdata/suprem"))
@@ -28,7 +30,7 @@ lazy val scodec = project
     performMavenCentralSync := false,
     publishAsOSSProject := true)
   .settings(
-    libraryDependencies += "org.scodec" %% "scodec-core" % "1.11.4")
+    libraryDependencies += "org.scodec" %% "scodec-core" % V.scodec)
   .enablePlugins(AutomateHeaderPlugin)
 
 lazy val testkit = project
@@ -39,7 +41,7 @@ lazy val testkit = project
     publishAsOSSProject := true)
   .settings(
     libraryDependencies ++= Seq(
-      "org.scodec" %% "scodec-bits" % "1.1.12",
-      "org.specs2" %% "specs2-core" % "4.3.6",
-      "org.specs2" %% "specs2-scalacheck" % "4.3.6"))
+      "org.scodec" %% "scodec-bits" % V.scodecBits,
+      "org.specs2" %% "specs2-core" % V.specs2,
+      "org.specs2" %% "specs2-scalacheck" % V.specs2))
   .enablePlugins(AutomateHeaderPlugin)
